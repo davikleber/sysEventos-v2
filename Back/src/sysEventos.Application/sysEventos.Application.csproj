@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+   <ItemGroup>
+    <ProjectReference Include="..\sysEventos.Domain\sysEventos.Domain.csproj" />
+    <ProjectReference Include="..\sysEventos.Persistence\sysEventos.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>
