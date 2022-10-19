@@ -5,8 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using sysEventos.API.Data;
-using sysEventos.API.Models;
+using sysEventos.Persistence;
+using sysEventos.Domain;
 
 namespace sysEventos.API.Controllers
 {
@@ -15,9 +15,9 @@ namespace sysEventos.API.Controllers
     public class EventosController : ControllerBase
     {
         
-        private readonly DataContext _context;
+        private readonly sysEventosContext _context;
 
-        public EventosController(DataContext context)
+        public EventosController(sysEventosContext context)
         {
             _context = context;
             
@@ -32,7 +32,7 @@ namespace sysEventos.API.Controllers
          [HttpGet("{id}")]
         public Evento GetById(int id)
         {
-            return _context.Eventos.FirstOrDefault(evento => evento.EventoId == id);
+            return _context.Eventos.FirstOrDefault(evento => evento.Id == id);
            
         }
     }

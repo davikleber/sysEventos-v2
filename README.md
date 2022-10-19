@@ -1,4 +1,4 @@
-# SysEventosApp - Sistema de Gerenciamentos para Eventos
+# SysEventosApp - Atualização V2 Sistema de Eventos (Atualização Estrutural)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
 

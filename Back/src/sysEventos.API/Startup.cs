@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using sysEventos.API.Data;
+using sysEventos.Persistence;
 
 namespace sysEventos.API
 {
@@ -28,7 +28,7 @@ namespace sysEventos.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(
+            services.AddDbContext<sysEventosContext>(
                 //Referência do Banco de Dados
                 context =>context.UseSqlite(Configuration.GetConnectionString("Default"))
             );
