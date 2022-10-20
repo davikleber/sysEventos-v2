@@ -15,6 +15,9 @@ namespace sysEventos.Persistence
         public EventoPersistence(sysEventosContext context)
         {
             _context = context;
+
+            //Só que está fazendo pra todos mundo
+            //_context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             
         }       
         // #region EVENTOS      
@@ -27,7 +30,7 @@ namespace sysEventos.Persistence
                 query = query.Include(e=> e.PalestranteEventos).ThenInclude(e=> e.Palestrante);
             }
 
-            query = query.OrderBy(e =>e.Id).Where(e=> e.Tema.ToLower().Contains(tema.ToLower()));
+            query = query.AsNoTracking().OrderBy(e =>e.Id).Where(e=> e.Tema.ToLower().Contains(tema.ToLower()));
             return await query.ToArrayAsync();
         }
          public async Task<Evento[]> GetAllEventosByAsync(bool includePalestrantes = false)
@@ -39,7 +42,7 @@ namespace sysEventos.Persistence
                 query = query.Include(e=> e.PalestranteEventos).ThenInclude(e=> e.Palestrante);
             }
 
-            query = query.OrderBy(e =>e.Id);
+            query = query.AsNoTracking().OrderBy(e =>e.Id);
             return await query.ToArrayAsync();
         }
 
@@ -52,7 +55,7 @@ namespace sysEventos.Persistence
                 query = query.Include(e=> e.PalestranteEventos).ThenInclude(e=> e.Palestrante);
             }
 
-            query = query.OrderBy(e =>e.Id).Where(e=> e.Id == eventoId);
+            query = query.AsNoTracking().OrderBy(e =>e.Id).Where(e=> e.Id == eventoId);
             return await query.FirstOrDefaultAsync();
         }
         //#endregion

@@ -5,6 +5,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using sysEventos.Application;
+using sysEventos.Application.Contratos;
+using sysEventos.Persistence;
+using sysEventos.Persistence.Contratos;
 using sysEventos.Persistence.Context;
 
 namespace sysEventos.API
@@ -26,7 +30,10 @@ namespace sysEventos.API
                 context =>context.UseSqlite(Configuration.GetConnectionString("Default"))
             );
             
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling= Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            services.AddScoped<IEventoService, EventoService>();
+            services.AddScoped<IGeralPersistence, GeralPersistence>();
+            services.AddScoped<IEventoPersistence, EventoPersistence>();
             services.AddCors();
             services.AddSwaggerGen(c =>
             {

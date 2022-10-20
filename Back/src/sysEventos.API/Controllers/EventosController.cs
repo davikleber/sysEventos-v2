@@ -59,7 +59,7 @@ namespace sysEventos.API.Controllers
            
         }
 
-        [HttpGet("{tema}/tema")]
+        [HttpGet("tema/{tema}")]
          public async Task<IActionResult> GetByTheme(string tema)
         {
             try
