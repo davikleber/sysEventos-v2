@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using sysEventos.Persistence;
+using sysEventos.Persistence.Context;
 
 namespace sysEventos.Persistence.Migrations
 {

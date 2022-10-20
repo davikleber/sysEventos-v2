@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using sysEventos.Domain;
 
-namespace sysEventos.Persistence
+namespace sysEventos.Persistence.Context
 {
     public class sysEventosContext : DbContext
     {
