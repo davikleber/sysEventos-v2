@@ -12,7 +12,14 @@ import { PalestrantesComponent } from './palestrantes/palestrantes.component';
 import { NavComponent } from './nav/nav.component';
 
 import {CollapseModule} from 'ngx-bootstrap/collapse';
-import { TooltipModule } from 'ngx-bootstrap/tooltip'
+import {TooltipModule } from 'ngx-bootstrap/tooltip';
+import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
+import {ModalModule} from 'ngx-bootstrap/modal';
+
+
+
+import { EventoService } from './services/evento.service';
+import { DateTimeFormatPipe } from './helpers/DateTimeFormart.pipe';
 
 
 @NgModule({
@@ -20,7 +27,8 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip'
     AppComponent,
     EventosComponent,
     PalestrantesComponent,
-    NavComponent
+    NavComponent,
+    DateTimeFormatPipe
 
 
   ],
@@ -31,11 +39,17 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip'
     BrowserAnimationsModule,
     CollapseModule.forRoot(),
     TooltipModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    ModalModule.forRoot(),
     FormsModule
 
 
+
+
   ],
-  providers: [],
+  providers: [
+    EventoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

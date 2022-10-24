@@ -457,3 +457,9 @@ $RECYCLE.BIN/
 *.db
 *.db-shm 
 *.db.swa
+
+#
+#Angular Exluidos
+#
+*
+
